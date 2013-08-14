@@ -19,6 +19,8 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'rstacruz/sparkup'
 " auto-pairs
 Bundle 'vim-scripts/Auto-Pairs'
+" CtrlP
+Bundle 'kien/ctrlp.vim'
 
 " use filetype on - required for vundle
 filetype plugin indent on
@@ -83,6 +85,10 @@ set nocindent
 set pastetoggle=<F2>
 " show mode
 set showmode
+" better command-line completion
+set wildmenu
+" ignore binary and swap files when searching for files using CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
 " set colorscheme
 colorscheme desert
 
