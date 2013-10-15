@@ -13,14 +13,14 @@ call vundle#rc()
 Bundle 'scrooloose/nerdtree'
 " Surround
 Bundle 'tpope/vim-surround' 
-" snipmate
-Bundle 'msanders/snipmate.vim'
 " sparkup
 Bundle 'rstacruz/sparkup'
 " auto-pairs
 Bundle 'vim-scripts/Auto-Pairs'
 " CtrlP
 Bundle 'kien/ctrlp.vim'
+" Solarized Color Scheme
+Bundle 'altercation/vim-colors-solarized'
 
 " use filetype on - required for vundle
 filetype plugin indent on
@@ -89,16 +89,21 @@ set showmode
 set wildmenu
 " ignore binary and swap files when searching for files using CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
-" set colorscheme
-colorscheme desert
+" set colorscheme (solarized)
+" colorscheme desert
+set background=dark
+colorscheme solarized
 
-" press F4 to toggle highlighting on/off.
-:noremap <F4> :noh<CR>
 " press F2 to save a file opened in RO mode
 :noremap <F2> :w ! sudo tee %<CR>
-" <F3> for raw paste
+" press F3 to toggle formatted paste
 nnoremap <F3> :set invpaste paste?<CR>
+" press F4 to toggle highlighting on/off.
+:noremap <F4> :noh<CR>
+" press F5 to toggle numbering
+nnoremap <F5> :set nonumber!<CR>
 
+" switching between tabs
 " press Ctrl+Left , Ctrl+Right to switch tabs
 :map <C-Left> :tabp<CR>
 :map <C-Right> :tabn<CR>
@@ -107,4 +112,9 @@ nnoremap <F3> :set invpaste paste?<CR>
 map <silent> <C-n> :NERDTreeToggle<CR>
 
 " XML Pretty format
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+" au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+
+" FileType Specific
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
+autocmd Filetype velocity setlocal ts=2 sts=2 sw=2
