@@ -21,6 +21,8 @@ Bundle 'vim-scripts/Auto-Pairs'
 Bundle 'kien/ctrlp.vim'
 " Solarized Color Scheme
 Bundle 'altercation/vim-colors-solarized'
+" Syntastic
+Bundle 'scrooloose/syntastic'
 
 " use filetype on - required for vundle
 filetype plugin indent on
@@ -81,14 +83,10 @@ set autoindent
 set smartindent
 " no c-indent
 set nocindent
-" toggle raw past
-set pastetoggle=<F2>
 " show mode
 set showmode
 " better command-line completion
 set wildmenu
-" ignore binary and swap files when searching for files using CtrlP
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
 " set colorscheme (solarized)
 " colorscheme desert
 set background=dark
@@ -108,8 +106,6 @@ nnoremap <F5> :set nonumber!<CR>
 :map <C-Left> :tabp<CR>
 :map <C-Right> :tabn<CR>
 
-" NerdTree
-map <silent> <C-n> :NERDTreeToggle<CR>
 
 " XML Pretty format
 " au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
@@ -118,3 +114,15 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype velocity setlocal ts=2 sts=2 sw=2
+
+" Plugin specific config
+" Ctrl-P
+" ignore binary and swap files when searching for files using CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*.git
+" mark eclipse projects as CtrlP root
+let g:ctrlp_root_markers = ['.project']
+" use silver searcher (apt-get install silversearcher-ag)
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" NerdTree
+map <silent> <C-n> :NERDTreeToggle<CR>
