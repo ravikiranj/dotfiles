@@ -1,0 +1,19 @@
+# General Ack Settings
+
+# sort file results
+--sort-files
+
+# only search with case sensitivity if there is mixed case
+--smart-case
+
+# follow symlinks
+--follow
+
+# use pager
+#--pager=less -r
+
+# Ack Ignore files
+--ignore-file=match:-c.js
+--ignore-file=match:-gen.js
+--ignore-file=match:-c.css
+--ignore-file=match:-gen.css
