@@ -23,6 +23,10 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 " Syntastic
 Bundle 'scrooloose/syntastic'
+" vim-less
+Bundle 'groenewege/vim-less'
+" YouCompleteMe
+Bundle 'Valloric/YouCompleteMe'
 
 " use filetype on - required for vundle
 filetype plugin indent on
