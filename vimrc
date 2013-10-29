@@ -3,6 +3,13 @@
 " required for vundle
 filetype off
 
+" If vundle is not installed, do it first
+if (!isdirectory(expand("$HOME/.vim/bundle/vundle")))
+    call system(expand("mkdir -p $HOME/.vim/bundle"))
+    call system(expand("git clone git@github.com:gmarik/vundle $HOME/.vim/bundle/vundle"))
+    echoerr 'Vundle was freshly installed. You should run :BundleInstall'
+endif
+
 " vundle config
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
