@@ -1,39 +1,38 @@
 " ====== vundle config begin ======
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 " required for vundle
 filetype off
 
-" If vundle is not installed, do it first
+" If vundle is not installed, echo install commands
 if (!isdirectory(expand("$HOME/.vim/bundle/vundle")))
-    call system(expand("mkdir -p $HOME/.vim/bundle"))
-    call system(expand("git clone git@github.com:gmarik/vundle $HOME/.vim/bundle/vundle"))
-    echoerr 'Vundle was freshly installed. You should run :BundleInstall'
+    echom "Please install vundle with below commands and run :BundleInstall"
+    echom "mkdir -p $HOME/.vim/vundle"
+    echom "git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle"
+else
+    " vundle config
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+
+    " vundle bundles
+    " original repos on github
+    " NERDTree
+    Bundle 'scrooloose/nerdtree'
+    " Surround
+    Bundle 'tpope/vim-surround' 
+    " sparkup
+    Bundle 'rstacruz/sparkup'
+    " auto-pairs
+    Bundle 'vim-scripts/Auto-Pairs'
+    " CtrlP
+    Bundle 'kien/ctrlp.vim'
+    " Syntastic
+    Bundle 'scrooloose/syntastic'
+    " vim-less
+    Bundle 'groenewege/vim-less'
+    " Solarized Color Scheme
+    Bundle 'altercation/vim-colors-solarized'
+    " YouCompleteMe
+    " Bundle 'Valloric/YouCompleteMe'
 endif
-
-" vundle config
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" vundle bundles
-" original repos on github
-" NERDTree
-Bundle 'scrooloose/nerdtree'
-" Surround
-Bundle 'tpope/vim-surround' 
-" sparkup
-Bundle 'rstacruz/sparkup'
-" auto-pairs
-Bundle 'vim-scripts/Auto-Pairs'
-" CtrlP
-Bundle 'kien/ctrlp.vim'
-" Solarized Color Scheme
-Bundle 'altercation/vim-colors-solarized'
-" Syntastic
-Bundle 'scrooloose/syntastic'
-" vim-less
-Bundle 'groenewege/vim-less'
-" YouCompleteMe
-Bundle 'Valloric/YouCompleteMe'
 
 " use filetype on - required for vundle
 filetype plugin indent on
@@ -98,10 +97,12 @@ set nocindent
 set showmode
 " better command-line completion
 set wildmenu
-" set colorscheme (solarized)
 " colorscheme desert
+" set colorscheme (solarized)
+if filereadable("$HOME/.vim/bundle/vim-colors-solarized/colors/solarized.vim")
+    colorscheme solarized
+endif
 set background=dark
-colorscheme solarized
 
 " press F2 to save a file opened in RO mode
 :noremap <F2> :w ! sudo tee %<CR>
@@ -116,7 +117,6 @@ nnoremap <F5> :set nonumber!<CR>
 " press Ctrl+Left , Ctrl+Right to switch tabs
 :map <C-Left> :tabp<CR>
 :map <C-Right> :tabn<CR>
-
 
 " XML Pretty format
 " au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
@@ -133,7 +133,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*.git
 " mark eclipse projects as CtrlP root
 let g:ctrlp_root_markers = ['.project']
 " use silver searcher (apt-get install silversearcher-ag)
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+if executable("ag")
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " NerdTree
 map <silent> <C-n> :NERDTreeToggle<CR>
