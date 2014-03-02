@@ -32,6 +32,8 @@ else
     Bundle 'altercation/vim-colors-solarized'
     " YouCompleteMe
     " Bundle 'Valloric/YouCompleteMe'
+    " vim-markdown
+    Bundle 'plasticboy/vim-markdown'
 endif
 
 " use filetype on - required for vundle
