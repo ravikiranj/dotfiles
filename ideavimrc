@@ -22,6 +22,8 @@ set showcmd
 set hlsearch
 " do incremental searching
 set incsearch
+" regex search
+set regexsearch
 " show the cursor position all the time
 set ruler
 " turn off error beep/flash
@@ -58,3 +60,4 @@ set nocindent
 " JS and CSS Specific
 autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype velocity setlocal tabstop=2 softtabstop=2 shiftwidth=2
