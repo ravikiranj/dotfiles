@@ -33,7 +33,7 @@ Bundle 'scrooloose/syntastic'
 " vim-less
 Bundle 'groenewege/vim-less'
 " YouCompleteMe
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 " Velocity
 Bundle "lepture/vim-velocity"
 " JS Beautify
@@ -158,8 +158,6 @@ if &diff
     colorscheme evening
 endif"
 
-" powerline
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 " Always show statusline
 set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
