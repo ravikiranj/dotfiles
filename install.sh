@@ -8,6 +8,9 @@ cp ./screenrc ~/.screenrc
 cp ./ackrc ~/.ackrc
 cp ./vrapperrc ~/.vrapperrc
 cp ./ideavimrc ~/.ideavimrc
-
 echo "Done."
-echo "Run 'vim' to configure plugins"
+
+# Post install notes
+echo "Install below packages using your beloved package manager"
+echo "<pkg_manager> install vim tmux screen ack/ack-grep"
+echo "Run \"vim\" to configure plugins"
