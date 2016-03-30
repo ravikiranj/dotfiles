@@ -1,0 +1,11 @@
+
+# Custom Aliases
+alias vb="vim ~/.bashrc"
+alias vv="vim ~/.vimrc"
+alias so="source ~/.bashrc"
+alias apt-get="sudo apt-get"
+alias yum="sudo yum"
+alias c="colordiff | less -R"
+
+# Custom Exports
+export PS1="[\u@\h \W]# "
