@@ -6,6 +6,8 @@ alias so="source ~/.bashrc"
 alias apt-get="sudo apt-get"
 alias yum="sudo yum"
 alias c="colordiff | less -R"
+alias t0="tmux attach -d -t 0"
+alias t1="tmux attach -d -t 1"
 
 # Custom Exports
 export PS1="[\u@\h \W]# "
