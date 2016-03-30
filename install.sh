@@ -8,7 +8,7 @@ cp ./screenrc ~/.screenrc
 cp ./ackrc ~/.ackrc
 cp ./vrapperrc ~/.vrapperrc
 cp ./ideavimrc ~/.ideavimrc
-cat ./bashrc_shortcuts >> ~/.bashrc_shortcuts
+cat ./bashrc_shortcuts >> ~/.bashrc
 echo "Done."
 
 # Post install notes
