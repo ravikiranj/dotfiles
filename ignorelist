@@ -7,6 +7,7 @@
 #
 # #Usage:
 #    rm -rf /media/$USER/linuxbackup/home/ && rsync -avP --exclude-from=/home/$USER/git/dotfiles/ignorelist /home/$USER/ /media/$USER/linuxbackup/home/
+#    SIZE=`du -sk /media/$USER/linuxbackup/home/ | cut -f 1` && tar cf - /media/$USER/linuxbackup/home/ | pv -p -s ${SIZE}k | bzip2 -c > rjanardhana_home_dir_backup.tar.gz
 
 
 ###############################################
