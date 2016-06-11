@@ -6,8 +6,7 @@
 # Version: 2015-08-30
 #
 # #Usage:
-#    USER=<homedir username here>
-#    rsync -aP --exclude-from=rsync-homedir-excludes.txt /home/$USER/ /media/$USER/linuxbackup/home/$USER/
+#    rm -rf /media/$USER/linuxbackup/home/ && rsync -avP --exclude-from=/home/$USER/git/dotfiles/ignorelist /home/$USER/ /media/$USER/linuxbackup/home/
 
 
 ###############################################
@@ -260,3 +259,48 @@ R
 sql
 ta-hubot
 VirtualBox*
+build
+Pictures
+build
+apr-build
+opt
+*.mkv
+*.ogv
+*.csv
+*node_modules*
+npm-*
+perl5
+
+# Hidden home
+.IntelliJIdea*/
+.Skype/
+.AndroidStudio*/
+.atlassian/
+.local/
+.dropbox*
+.eclipse*
+.Genymobile*
+.ant*
+.config/chromium
+.config/google-chrome
+.config/sublime-text-3
+.cpan*
+.googleearth
+.ivy2
+.local/share/Zeal
+.mozilla
+.node-gyp
+.nx
+.purple
+.rvm
+.samza
+.sbt
+.vim
+.x2go
+.yjp
+.virtualenvs/
+.wireshark/
+.vdiff_out
+.sonar
+.samza
+.xsession-x2go-errors
