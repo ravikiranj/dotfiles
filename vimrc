@@ -39,6 +39,10 @@ Bundle "lepture/vim-velocity"
 " JS Beautify
 Bundle 'einars/js-beautify'
 Bundle 'maksimr/vim-jsbeautify'
+" Gradle
+Bundle 'tfnico/vim-gradle'
+" TOML
+Bundle 'cespare/vim-toml'
 
 " use filetype on - required for vundle
 filetype plugin indent on
