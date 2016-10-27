@@ -43,6 +43,8 @@ Bundle 'maksimr/vim-jsbeautify'
 Bundle 'tfnico/vim-gradle'
 " TOML
 Bundle 'cespare/vim-toml'
+" Dockerfil
+Bundle 'ekalinin/Dockerfile.vim'
 
 " use filetype on - required for vundle
 filetype plugin indent on
