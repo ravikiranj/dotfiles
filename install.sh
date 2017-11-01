@@ -25,10 +25,18 @@ fi
 
 if [ "$PACKAGE_MANAGER" == "yum" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
-    sudo $PACKAGE_MANAGER install vim tmux screen colordiff ack
+    sudo $PACKAGE_MANAGER install vim tmux screen colordiff ack the_silver_searcher
 elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
-    sudo $PACKAGE_MANAGER install vim tmux screen colordiff ack-grep
+    sudo $PACKAGE_MANAGER install vim tmux screen colordiff ack-grep silversearcher-ag
+elif [[ "$OSTYPE" =~ ^darwin.+ ]]; then
+    which brew
+    if [ $? -eq "0" ]; then
+        echo "brew is installed"
+        brew install vim tmux screen colordiff ack the_silver_searcher
+    else
+        echo "brew is not installed, please install brew by following instructions at https://brew.sh/ and run install.sh again"
+    fi
 else
     echo "Install below packages using your beloved package manager"
     echo "<PACKAGE_MANAGER> install vim tmux screen colordiff ack/ack-grep"
