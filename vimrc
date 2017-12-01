@@ -45,6 +45,15 @@ Bundle 'tfnico/vim-gradle'
 Bundle 'cespare/vim-toml'
 " Dockerfile
 Bundle 'ekalinin/Dockerfile.vim'
+" vim-orgmode
+Bundle 'jceb/vim-orgmode'
+" vim-speeddating
+Bundle 'tpope/vim-speeddating'
+" Syntax Range
+Bundle 'vim-scripts/SyntaxRange'
+" utl.vim
+Bundle 'vim-scripts/utl.vim'
+ 
 
 " use filetype on - required for vundle
 filetype plugin indent on
@@ -109,6 +118,14 @@ set nocindent
 set showmode
 " better command-line completion
 set wildmenu
+" Always show statusline
+set laststatus=2
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256"
+" Set fold options
+set foldmethod=indent
+set foldlevel=20
+
 " set colorscheme solarized/desert
 if filereadable("$HOME/.vim/bundle/vim-colors-solarized/colors/solarized.vim")
     colorscheme solarized
@@ -130,7 +147,6 @@ nnoremap <F5> :set nonumber!<CR>
 " press Ctrl+Left , Ctrl+Right to switch tabs
 :map <C-Left> :tabp<CR>
 :map <C-Right> :tabn<CR>
-
 
 " XML Pretty format
 " au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
@@ -155,6 +171,15 @@ au BufRead,BufNewFile *.hql set filetype=sql
 
 " NerdTree
 map <silent> <C-n> :NERDTreeToggle<CR>
+function! StartUp()
+    if 0 == argc()
+        " Start     NERDTree
+        NERDTree
+        " Go to previous (last accessed) window
+        wincmd p
+    end
+endfunction
+autocmd VimEnter * call StartUp()
 
 " JsBeautify
 map <F6> :call JsBeautify()<cr>
@@ -163,8 +188,3 @@ map <F6> :call JsBeautify()<cr>
 if &diff
     colorscheme evening
 endif"
-
-" Always show statusline
-set laststatus=2
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256"
