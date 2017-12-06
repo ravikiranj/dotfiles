@@ -125,6 +125,8 @@ set t_Co=256"
 " Set fold options
 set foldmethod=indent
 set foldlevel=20
+" Clipboard
+set clipboard=unnamed
 
 " set colorscheme solarized/desert
 if filereadable("$HOME/.vim/bundle/vim-colors-solarized/colors/solarized.vim")
@@ -188,3 +190,7 @@ map <F6> :call JsBeautify()<cr>
 if &diff
     colorscheme evening
 endif"
+
+" vim-orgmode
+let g:org_todo_keywords=['TODO', 'IN_PROGRESS', 'BLOCKED', '|', 'DONE']
+let g:org_tag_column=200
