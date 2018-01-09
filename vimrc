@@ -153,12 +153,6 @@ nnoremap <F5> :set nonumber!<CR>
 " XML Pretty format
 " au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
-" FileType Specific
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype css setlocal ts=2 sts=2 sw=2
-autocmd Filetype velocity setlocal ts=2 sts=2 sw=2
-autocmd Filetype less setlocal ts=2 sts=2 sw=2
-
 " Plugin specific config
 " Ctrl-P
 " ignore binary and swap files when searching for files using CtrlP
@@ -193,4 +187,4 @@ endif"
 
 " vim-orgmode
 let g:org_todo_keywords=['TODO', 'IN_PROGRESS', 'BLOCKED', '|', 'DONE']
-let g:org_tag_column=200
+let g:org_tag_column=400

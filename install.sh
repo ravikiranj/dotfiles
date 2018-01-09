@@ -4,13 +4,13 @@ set -e
 
 # Copy files
 echo "Copying files and shortcuts"
-cp ./vimrc ~/.vimrc
-cp ./tmux.conf ~/.tmux.conf
-cp ./screenrc ~/.screenrc
-cp ./ackrc ~/.ackrc
-cp ./vrapperrc ~/.vrapperrc
-cp ./ideavimrc ~/.ideavimrc
-cat ./bashrc_shortcuts >> ~/.bashrc
+cp ./vimrc $HOME/.vimrc
+cp ./tmux.conf $HOME/.tmux.conf
+cp ./screenrc $HOME/.screenrc
+cp ./ackrc $HOME/.ackrc
+cp ./vrapperrc $HOME/.vrapperrc
+cp ./ideavimrc $HOME/.ideavimrc
+cat ./bashrc_shortcuts >> $HOME/.bashrc
 echo "Done."
 
 # Post install notes
@@ -23,17 +23,25 @@ if [ -f /etc/lsb-release  ]; then
     PACKAGE_MANAGER="apt-get"
 fi
 
+function install_tpm() {
+    git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+    echo "Install tpm plugins via Ctrl+A + Ctrl+I"
+}
+
 if [ "$PACKAGE_MANAGER" == "yum" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
     sudo $PACKAGE_MANAGER install vim tmux screen colordiff ack the_silver_searcher
+    install_tpm()
 elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
     sudo $PACKAGE_MANAGER install vim tmux screen colordiff ack-grep silversearcher-ag
-elif [[ "$OSTYPE" =~ ^darwin.+ ]]; then
+    install_tpm()
+elif [[ "$OSTYPE" =$HOME ^darwin.+ ]]; then
     which brew
     if [ $? -eq "0" ]; then
         echo "brew is installed"
         brew install vim tmux screen colordiff ack the_silver_searcher
+        install_tpm()
     else
         echo "brew is not installed, please install brew by following instructions at https://brew.sh/ and run install.sh again"
     fi
