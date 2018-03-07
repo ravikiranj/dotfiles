@@ -1,59 +1,69 @@
 " ====== vundle config begin ======
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 " required for vundle
+set nocompatible
 filetype off
 
 " If vundle is not installed, do it first
-if (!isdirectory(expand("$HOME/.vim/bundle/vundle")))
-    call system(expand("mkdir -p $HOME/.vim/bundle"))
-    call system(expand("git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/vundle"))
-    echoerr 'Vundle was freshly installed. You should run :BundleInstall'
+if (!isdirectory(expand("$HOME/.vim/bundle/Vundle.vim")))
+    call system(expand("mkdir -p $HOME/.vim/bundle/Vundle.vim"))
+    call system(expand("git clone https://github.com/VundleVim/Vundle.vim $HOME/.vim/bundle/Vundle.vim"))
+    echo 'Vundle was freshly installed. Run :PluginInstall to install all plugins'
 endif
 
-" vundle config
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" vundle bundles
-" original repos on github
-" NERDTree
-Bundle 'scrooloose/nerdtree'
+" begin vundle
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" vundle plugins
+" nerdtree 
+Plugin 'scrooloose/nerdtree'
 " Surround
-Bundle 'tpope/vim-surround' 
+Plugin 'tpope/vim-surround' 
 " sparkup
-Bundle 'rstacruz/sparkup'
+Plugin 'rstacruz/sparkup'
 " auto-pairs
-Bundle 'vim-scripts/Auto-Pairs'
+Plugin 'vim-scripts/Auto-Pairs'
 " CtrlP
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 " Solarized Color Scheme
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 " Syntastic
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " vim-less
-Bundle 'groenewege/vim-less'
+Plugin 'groenewege/vim-less'
 " YouCompleteMe
-" Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " Velocity
-Bundle "lepture/vim-velocity"
+Plugin 'lepture/vim-velocity'
 " JS Beautify
-Bundle 'einars/js-beautify'
-Bundle 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
+Plugin 'maksimr/vim-jsbeautify'
 " Gradle
-Bundle 'tfnico/vim-gradle'
+Plugin 'tfnico/vim-gradle'
 " TOML
-Bundle 'cespare/vim-toml'
+Plugin 'cespare/vim-toml'
 " Dockerfile
-Bundle 'ekalinin/Dockerfile.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 " vim-orgmode
-Bundle 'jceb/vim-orgmode'
+Plugin 'jceb/vim-orgmode'
 " vim-speeddating
-Bundle 'tpope/vim-speeddating'
+Plugin 'tpope/vim-speeddating'
 " Syntax Range
-Bundle 'vim-scripts/SyntaxRange'
+Plugin 'vim-scripts/SyntaxRange'
 " utl.vim
-Bundle 'vim-scripts/utl.vim'
+Plugin 'vim-scripts/utl.vim'
+" Calendar
+Plugin 'mattn/calendar-vim'
  
+" end of vundle
+call vundle#end()
 
 " use filetype on - required for vundle
 filetype plugin indent on
@@ -144,6 +154,8 @@ nnoremap <F3> :set invpaste paste?<CR>
 :noremap <F4> :noh<CR>
 " press F5 to toggle numbering
 nnoremap <F5> :set nonumber!<CR>
+" press F6 to JsBeautify
+map <F6> :call JsBeautify()<cr>
 
 " switching between tabs
 " press Ctrl+Left , Ctrl+Right to switch tabs
@@ -177,9 +189,6 @@ function! StartUp()
 endfunction
 autocmd VimEnter * call StartUp()
 
-" JsBeautify
-map <F6> :call JsBeautify()<cr>
-
 " vimdiff
 if &diff
     colorscheme evening
@@ -188,3 +197,6 @@ endif"
 " vim-orgmode
 let g:org_todo_keywords=['TODO', 'IN_PROGRESS', 'BLOCKED', '|', 'DONE']
 let g:org_tag_column=400
+
+" Mac crontab fix
+autocmd filetype crontab setlocal nobackup nowritebackup
