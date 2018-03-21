@@ -56,8 +56,3 @@ set autoindent
 set smartindent
 " no c-indent
 set nocindent
-
-" JS and CSS Specific
-autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype velocity setlocal tabstop=2 softtabstop=2 shiftwidth=2
