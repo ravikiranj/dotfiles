@@ -61,6 +61,10 @@ Plugin 'vim-scripts/SyntaxRange'
 Plugin 'vim-scripts/utl.vim'
 " Calendar
 Plugin 'mattn/calendar-vim'
+" Ruby
+Plugin 'vim-ruby/vim-ruby'
+" endwise
+Plugin 'tpope/vim-endwise'
  
 " end of vundle
 call vundle#end()
@@ -192,7 +196,7 @@ autocmd VimEnter * call StartUp()
 " vimdiff
 if &diff
     colorscheme evening
-endif"
+endif
 
 " vim-orgmode
 let g:org_todo_keywords=['TODO', 'IN_PROGRESS', 'BLOCKED', '|', 'DONE']
