@@ -25,23 +25,23 @@ fi
 
 function install_tpm() {
     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-    echo "Install tpm plugins via Ctrl+A + Ctrl+I"
+    echo "Install tpm plugins via Ctrl+A + I"
 }
 
 if [ "$PACKAGE_MANAGER" == "yum" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
     sudo $PACKAGE_MANAGER install vim tmux screen colordiff ack the_silver_searcher
-    install_tpm()
+    install_tpm
 elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
     sudo $PACKAGE_MANAGER install vim tmux screen colordiff ack-grep silversearcher-ag
-    install_tpm()
-elif [[ "$OSTYPE" =$HOME ^darwin.+ ]]; then
+    install_tpm
+elif [ "$(uname)" == "Darwin" ]; then
     which brew
     if [ $? -eq "0" ]; then
         echo "brew is installed"
         brew install vim tmux screen colordiff ack the_silver_searcher
-        install_tpm()
+        install_tpm
     else
         echo "brew is not installed, please install brew by following instructions at https://brew.sh/ and run install.sh again"
     fi
