@@ -151,15 +151,18 @@ endif
 set background=dark
 
 " press F2 to save a file opened in RO mode
-:noremap <F2> :w ! sudo tee %<CR>
+noremap <F2> :w ! sudo tee %<CR>
 " press F3 to toggle formatted paste
 nnoremap <F3> :set invpaste paste?<CR>
 " press F4 to toggle highlighting on/off.
-:noremap <F4> :noh<CR>
+noremap <F4> :noh<CR>
 " press F5 to toggle numbering
 nnoremap <F5> :set nonumber!<CR>
 " press F6 to JsBeautify
 map <F6> :call JsBeautify()<cr>
+" press F7 to insert current local date timestamp
+nnoremap <F7> "=strftime("%Y-%m-%d %I:%M %p")<CR>P
+inoremap <F7> <C-R>=strftime("%Y-%m-%d %I:%M %p")<CR>
 
 " switching between tabs
 " press Ctrl+Left , Ctrl+Right to switch tabs
@@ -204,3 +207,6 @@ let g:org_tag_column=400
 
 " Mac crontab fix
 autocmd filetype crontab setlocal nobackup nowritebackup
+
+" Ruby
+au FileType ruby setl sw=2 sts=2 et
