@@ -1,13 +1,10 @@
-# Custom Aliases added by ravikiranj dotfiles
-alias vb="vim ~/.bashrc"
+# Custom Aliases
+alias vz="vim ~/.zshrc"
 alias vv="vim ~/.vimrc"
-alias so="source ~/.bashrc"
+alias sz="source ~/.zshrc"
 alias apt-get="sudo apt-get"
 alias apt="sudo apt"
 alias yum="sudo yum"
 alias c="colordiff | less -R"
 alias tcore="tmux attach -d -t core || tmux new -s core"
 alias tkill="tmux kill-session -t "
-
-# Custom Exports
-export PS1="[\u@\h \W]# "
