@@ -1,4 +1,4 @@
-# Custom Aliases
+# Custom Aliases added by ravikiranj dotfiles
 alias vz="vim ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias sz="source ~/.zshrc"
@@ -8,3 +8,12 @@ alias yum="sudo yum"
 alias c="colordiff | less -R"
 alias tcore="tmux attach -d -t core || tmux new -s core"
 alias tkill="tmux kill-session -t "
+
+# Custom Exports added by ravikiranj dotfiles
+# ZSH
+plugins=(git git-prompt tmux)
+# POWERLEVEL9K THEME
+POWERLEVEL9K_CONTEXT_TEMPLATE="%n@%M"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL9K_SHORTEN_STRATEGY="Default"
+POWERLEVEL9K_SHOW_CHANGESET="true"

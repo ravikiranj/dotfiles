@@ -9,5 +9,5 @@ alias c="colordiff | less -R"
 alias tcore="tmux attach -d -t core || tmux new -s core"
 alias tkill="tmux kill-session -t "
 
-# Custom Exports
+# Custom Exports added by ravikiranj dotfiles
 export PS1="[\u@\h \W]# "
