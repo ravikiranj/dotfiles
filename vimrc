@@ -65,6 +65,9 @@ Plugin 'mattn/calendar-vim'
 Plugin 'vim-ruby/vim-ruby'
 " endwise
 Plugin 'tpope/vim-endwise'
+" vim-markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
  
 " end of vundle
 call vundle#end()
