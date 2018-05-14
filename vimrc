@@ -66,8 +66,8 @@ Plugin 'vim-ruby/vim-ruby'
 " endwise
 Plugin 'tpope/vim-endwise'
 " vim-markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-markdown'
+
  
 " end of vundle
 call vundle#end()
@@ -213,3 +213,7 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Ruby
 au FileType ruby setl sw=2 sts=2 et
+
+" Markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'java']
+
