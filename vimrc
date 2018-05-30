@@ -77,6 +77,16 @@ filetype plugin indent on
 
 " ====== vundle config end ======
 
+" Detect OS
+if !exists('g:os')
+    if has('win32') || has('win16')
+        let g:os = 'Windows'
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
+endif
+
+" Vim Options
 " use syntax on
 syntax on
 " show possible command suggestions
@@ -153,19 +163,34 @@ else
 endif
 set background=dark
 
+" Functional Key mappings
 " press F2 to save a file opened in RO mode
 noremap <F2> :w ! sudo tee %<CR>
+
 " press F3 to toggle formatted paste
 nnoremap <F3> :set invpaste paste?<CR>
+
 " press F4 to toggle highlighting on/off.
 noremap <F4> :noh<CR>
+
 " press F5 to toggle numbering
 nnoremap <F5> :set nonumber!<CR>
+
 " press F6 to JsBeautify
 map <F6> :call JsBeautify()<cr>
+
 " press F7 to insert current local date timestamp
 nnoremap <F7> "=strftime("%Y-%m-%d %I:%M %p")<CR>P
 inoremap <F7> <C-R>=strftime("%Y-%m-%d %I:%M %p")<CR>
+
+" press F8 to open current file in web broser
+if g:os == 'Darwin'
+    " Mac
+    nnoremap <F8> :!open -a Google\ Chrome %<CR><CR>
+else
+    " Default to Linux behavior
+    nnoremap <F8> :!google-chrome %<CR><CR>
+endif
 
 " switching between tabs
 " press Ctrl+Left , Ctrl+Right to switch tabs
@@ -215,5 +240,4 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 au FileType ruby setl sw=2 sts=2 et
 
 " Markdown
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'java']
-
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'java', 'javascript']
