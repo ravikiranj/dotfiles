@@ -241,3 +241,8 @@ au FileType ruby setl sw=2 sts=2 et
 
 " Markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'java', 'javascript']
+
+nmap <silent> <leader>mb ysiw*gvS*
+nmap <silent> <leader>mi ysiw_gvS_
+nmap <silent> <leader>mcb yawds*yawds*
+nmap <silent> <leader>mci yawds_yawds_
