@@ -39,7 +39,7 @@ Plugin 'scrooloose/syntastic'
 " vim-less
 Plugin 'groenewege/vim-less'
 " YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " Velocity
 Plugin 'lepture/vim-velocity'
 " JS Beautify
@@ -67,6 +67,8 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 " vim-markdown
 Plugin 'tpope/vim-markdown'
+" vim-json
+Plugin 'elzr/vim-json'
 
  
 " end of vundle
