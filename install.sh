@@ -41,7 +41,7 @@ function add_shortcuts_to_zshrc() {
 
 function install_ohmyzsh() {
     echo "Installing ohmyzsh"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
 
     echo "Installing powerlevel9k theme for zsh"
     git clone https://github.com/bhilburn/powerlevel9k.git $HOME/.oh-my-zsh/custom/themes/powerlevel9k
@@ -96,5 +96,5 @@ else
     exit 1
 fi
 
-echo "Your system setup is complete. Press any key to exit"
-read value
+echo "Your system dotfiles setup is complete."
+echo "You should now change your default shell to zsh (chsh) and install tpm plugins (Ctrl+A + I)."
