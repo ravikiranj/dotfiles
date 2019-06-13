@@ -70,13 +70,13 @@ function install_powerline_fonts() {
 
 if [ "$PACKAGE_MANAGER" == "yum" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
-    sudo $PACKAGE_MANAGER install git vim tmux screen colordiff ack the_silver_searcher curl zsh
+    sudo $PACKAGE_MANAGER install git vim tmux screen colordiff ack the_silver_searcher curl zsh ripgrep
     install_tpm
     install_ohmyzsh || echo "ohmyzsh setup might have failed, please check!"
     install_powerline_fonts
 elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
-    sudo apt-get update && sudo $PACKAGE_MANAGER install -y git vim tmux screen colordiff ack-grep silversearcher-ag curl zsh
+    sudo apt-get update && sudo $PACKAGE_MANAGER install -y git vim tmux screen colordiff ack-grep silversearcher-ag curl zsh ripgrep
     install_tpm
     install_ohmyzsh || echo "ohmyzsh setup might have failed, please check!"
     install_powerline_fonts
@@ -84,7 +84,7 @@ elif [ "$(uname)" == "Darwin" ]; then
     which brew
     if [ $? -eq "0" ]; then
         echo "brew is installed"
-        brew install git vim tmux screen colordiff ack the_silver_searcher curl zsh
+        brew install git vim tmux screen colordiff ack the_silver_searcher curl zsh ripgrep
         install_tpm
         install_ohmyzsh || echo "ohmyzsh setup might have failed, please check!"
         install_powerline_fonts
