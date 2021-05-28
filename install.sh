@@ -41,7 +41,7 @@ function add_shortcuts_to_zshrc() {
 
 function install_ohmyzsh() {
     echo "Installing ohmyzsh"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
     echo "Installing powerlevel9k theme for zsh"
     git clone https://github.com/bhilburn/powerlevel9k.git $HOME/.oh-my-zsh/custom/themes/powerlevel9k
