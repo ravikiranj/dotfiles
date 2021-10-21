@@ -7,4 +7,6 @@ ENV LANG en_US.utf8
 ADD . /opt/ravikiranj/dotfiles
 WORKDIR /opt/ravikiranj/dotfiles
 
-CMD bash /opt/ravikiranj/dotfiles/install.sh
+RUN echo "Tailing dummy file to keep docker container alive" > /opt/ravikiranj/dotfiles/dummyfile.txt
+
+CMD bash /opt/ravikiranj/dotfiles/install.sh && tail -F /opt/ravikiranj/dotfiles/dummyfile.txt
