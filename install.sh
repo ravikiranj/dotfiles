@@ -59,6 +59,9 @@ function install_powerlevel10k() {
     if [ -f "$HOME/.zshrc" ]; then
         sed -i.bak 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' "$HOME/.zshrc"
     fi
+
+    echo "Copying p10k.zsh configuration"
+    cp p10k.zsh "$HOME/.p10k.zsh"
 }
 
 function install_ohmyzsh() {
@@ -93,7 +96,8 @@ if [ "$PACKAGE_MANAGER" == "yum" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
     sudo $PACKAGE_MANAGER install git vim tmux screen colordiff ack the_silver_searcher curl zsh ripgrep wget
     install_tpm
-    install_ohmyzsh || echo "ohmyzsh setup might have failed, please check!"
+    install_ohmyzsh
+    install_powerlevel10k
     install_powerline_fonts
     install_nerd_fonts
 elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
@@ -101,7 +105,8 @@ elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
     sudo apt-get update && sudo $PACKAGE_MANAGER install -y git vim tmux screen colordiff ack-grep silversearcher-ag curl zsh ripgrep wget
     sudo apt-get update
     install_tpm
-    install_ohmyzsh || echo "ohmyzsh setup might have failed, please check!"
+    install_ohmyzsh
+    install_powerlevel10k
     install_powerline_fonts
     install_nerd_fonts
 elif [ "$(uname)" == "Darwin" ]; then
@@ -109,7 +114,8 @@ elif [ "$(uname)" == "Darwin" ]; then
         echo "brew is installed"
         brew install git vim tmux screen colordiff ack the_silver_searcher curl zsh ripgrep wget
         install_tpm
-        install_ohmyzsh || echo "ohmyzsh setup might have failed, please check!"
+        install_ohmyzsh
+        install_powerlevel10k
         install_powerline_fonts
         install_nerd_fonts
     else
@@ -124,6 +130,5 @@ echo "Your system dotfiles setup is complete."
 echo "You should now do the following steps to complete the installations"
 echo "1. Change your default shell to zsh via 'chsh -s $(which zsh)'"
 echo "2. Change terminal font to Meslo nerd Font"
-echo "3. Configure powerlevel 10k via 'p10k configure'"
-echo "4. Install tmux tpm plugins (Ctrl+A + I)"
+echo "3. Install tmux tpm plugins (Ctrl+A + I)"
 # End Installation

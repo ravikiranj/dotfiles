@@ -9,4 +9,7 @@ docker build -t dotfiles . && docker stop dotfiles && docker rm dotfiles && dock
 
 # Tail docker container logs
 docker logs -ft dotfiles
+
+# Login to docker container to inspect files
+docker exec -it dotfiles bash
 ```
