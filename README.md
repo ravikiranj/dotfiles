@@ -8,5 +8,5 @@ Customized config files for vim, tmux, screen etc.,
 docker build -t dotfiles . && docker stop dotfiles && docker rm dotfiles && docker run -t -d --name dotfiles dotfiles
 
 # View logs
-docker exec -it dotfiles bash -c "tail -F install.log"
+docker logs -ft dotfiles
 ```

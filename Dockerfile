@@ -7,4 +7,4 @@ ENV LANG en_US.utf8
 ADD . /opt/ravikiranj/dotfiles
 WORKDIR /opt/ravikiranj/dotfiles
 
-CMD bash /opt/ravikiranj/dotfiles/install.sh 2>&1 | tee /opt/ravikiranj/dotfiles/install.log
+CMD bash /opt/ravikiranj/dotfiles/install.sh
