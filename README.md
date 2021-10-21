@@ -1,6 +1,14 @@
-## dotfiles
+# dotfiles
 Customized config files for vim, tmux, screen etc.,
 
+## Installation
+
+```bash
+# Run install script
+./install.sh
+```
+
+## Development
 ### Docker Validation
 
 ```bash
