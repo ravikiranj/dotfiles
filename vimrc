@@ -67,9 +67,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 " vim-markdown
 Plugin 'tpope/vim-markdown'
-" vim-json
-Plugin 'elzr/vim-json'
-
+" fzf
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
  
 " end of vundle
 call vundle#end()
@@ -188,10 +188,10 @@ inoremap <F7> <C-R>=strftime("%Y-%m-%d %I:%M %p")<CR>
 " press F8 to open current file in web broser
 if g:os == 'Darwin'
     " Mac
-    nnoremap <F8> :!open -a Google\ Chrome %<CR><CR>
+    nnoremap <F8> :!open -a /Applications/Firefox.app %<CR><CR>
 else
     " Default to Linux behavior
-    nnoremap <F8> :!google-chrome %<CR><CR>
+    nnoremap <F8> :!firefox %<CR><CR>
 endif
 
 " switching between tabs
@@ -218,8 +218,6 @@ au BufRead,BufNewFile *.hql set filetype=sql
 map <silent> <C-n> :NERDTreeToggle<CR>
 function! StartUp()
     if 0 == argc()
-        " Start     NERDTree
-        NERDTree
         " Go to previous (last accessed) window
         wincmd p
     end

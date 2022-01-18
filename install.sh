@@ -88,6 +88,11 @@ function install_nerd_fonts() {
     ./install_nerd_fonts.sh
 }
 
+function install_fzf() {
+    git clone --depth 1 https://github.com/junegunn/fzf.git /tmp/fzf
+    /tmp/fzf/install --all
+}
+
 # Start Installation
 copy_config_files
 add_shortcuts_to_bashrc
@@ -97,6 +102,7 @@ if [ "$PACKAGE_MANAGER" == "yum" ]; then
     sudo $PACKAGE_MANAGER install git vim tmux screen colordiff ack the_silver_searcher curl zsh ripgrep wget
     install_tpm
     install_ohmyzsh
+    install_fzf
     install_powerlevel10k
     install_powerline_fonts
     install_nerd_fonts
@@ -106,6 +112,7 @@ elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
     sudo apt-get update
     install_tpm
     install_ohmyzsh
+    install_fzf
     install_powerlevel10k
     install_powerline_fonts
     install_nerd_fonts
@@ -115,6 +122,7 @@ elif [ "$(uname)" == "Darwin" ]; then
         brew install git vim tmux screen colordiff ack the_silver_searcher curl zsh ripgrep wget
         install_tpm
         install_ohmyzsh
+        install_fzf
         install_powerlevel10k
         install_powerline_fonts
         install_nerd_fonts
