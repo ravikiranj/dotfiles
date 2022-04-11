@@ -89,8 +89,8 @@ function install_nerd_fonts() {
 }
 
 function install_fzf() {
-    git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME"
-    "$HOME/install" --all
+    git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+    "$HOME/.fzf/install" --all
 }
 
 # Start Installation
