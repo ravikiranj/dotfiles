@@ -1,0 +1,14 @@
+FROM amazonlinux:2
+
+ENV TZ=UTC
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN yum update && yum install -y sudo locales glibc-locale-source glibc-langpack-en
+ENV LANG en_US.utf8
+
+ADD . /opt/ravikiranj/dotfiles
+WORKDIR /opt/ravikiranj/dotfiles
+
+RUN echo "Tailing dummy file to keep docker container alive" > /opt/ravikiranj/dotfiles/dummyfile.txt
+
+CMD bash /opt/ravikiranj/dotfiles/install.sh && tail -F /opt/ravikiranj/dotfiles/dummyfile.txt

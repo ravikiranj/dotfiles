@@ -5,7 +5,6 @@ alias so="source ~/.bashrc"
 alias apt-get="sudo apt-get"
 alias apt="sudo apt"
 alias yum="sudo yum"
-alias c="colordiff | less -R"
 alias tcore="tmux new-session -A -D -s core"
 alias tkill="tmux kill-session -t "
 

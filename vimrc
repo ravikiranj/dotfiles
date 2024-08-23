@@ -208,8 +208,9 @@ endif
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*.git
 " mark eclipse projects as CtrlP root
 let g:ctrlp_root_markers = ['.project']
-" use silver searcher (apt-get install silversearcher-ag)
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" use rg for searching
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_use_caching = 0
 
 " hql as sql
 au BufRead,BufNewFile *.hql set filetype=sql

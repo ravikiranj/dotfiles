@@ -1,0 +1,9 @@
+*.iml
+*.idea/*
+build/
+build
+*.swap
+venv-*/
+*.bak
+*.swp
+.DS_Store

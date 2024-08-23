@@ -5,13 +5,10 @@ alias sz="source ~/.zshrc"
 alias apt-get="sudo apt-get"
 alias apt="sudo apt"
 alias yum="sudo yum"
-alias c="colordiff | less -R"
 alias tcore="tmux new-session -A -D -s core"
 alias tkill="tmux kill-session -t "
 
 # Custom Exports added by ravikiranj dotfiles
-# ZSH
-plugins=(git git-prompt tmux)
 # POWERLEVEL9K THEME
 POWERLEVEL9K_CONTEXT_TEMPLATE="%n@%M"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
