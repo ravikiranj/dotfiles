@@ -27,3 +27,9 @@ $DOCKER_BIN logs -ft $DOCKER_NAME
 # Login to docker container to inspect files
 $DOCKER_BIN exec -it $DOCKER_NAME zsh
 ```
+
+### Mac Testing
+1. In order to test on Mac, download [UTM](https://mac.getutm.app/) and [IPSW](https://ipsw.me/product/Mac) relevant to your Mac.
+1. Create a new virtualized VM in UTM using the IPSW file.
+    1. Use Bridged Network for internet connectivity to work
+1. Clone this repo locally for testing.
