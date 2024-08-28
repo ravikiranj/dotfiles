@@ -48,6 +48,7 @@ function copy_config_files() {
     backup_and_copy_file ./tmux.conf "$HOME/.tmux.conf"
     backup_and_copy_file ./screenrc "$HOME/.screenrc"
     backup_and_copy_file ./ackrc "$HOME/.ackrc"
+    backup_and_copy_file ./ripgreprc "$HOME/.ripgreprc"
     backup_and_copy_file ./vrapperrc "$HOME/.vrapperrc"
     backup_and_copy_file ./ideavimrc "$HOME/.ideavimrc"
     backup_and_copy_file ./gitignore "$HOME/.gitignore"

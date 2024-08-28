@@ -1,0 +1,17 @@
+# Enable colors by default
+--color=always
+
+# Show line numbers by default
+--line-number
+
+# Search hidden files (optional, might increase search scope)
+--hidden
+
+# Follow symlinks
+--follow
+
+# Smart case search: case-insensitive unless the pattern contains uppercase
+--smart-case
+
+# Include the file name in the output
+--with-filename
