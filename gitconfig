@@ -1,13 +1,14 @@
 [color]
     ui = auto
 [core]
-    pager = delta
+    #pager = delta
+    pager = less -FMRiX
 [interactive]
-    diffFilter = delta --color-only
+    #diffFilter = delta --color-only
 [delta]
-    line-numbers = true
-    navigate = true # use n and N to move between diff sections
-    side-by-side = true
+    #line-numbers = true
+    #navigate = true # use n and N to move between diff sections
+    #side-by-side = true
 [merge]
     conflictstyle = diff3
 [diff]
