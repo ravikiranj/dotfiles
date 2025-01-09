@@ -161,6 +161,18 @@ function install_cargo_packages() {
     echo "Completed installing cargo"
 }
 
+function install_ncdu_binary() {
+    echo "Started installing ncdu"
+
+    pushd /tmp
+    wget https://dev.yorhel.nl/download/ncdu-2.7-linux-x86_64.tar.gz
+    tar xvf ncdu-2.7-linux-x86_64.tar.gz
+    sudo mv ncdu /usr/bin
+    popd
+
+    echo "Completed installing ncdu"
+}
+
 function install_vim_plugins() {
     echo "Started installing vim plugins"
     # echo sends newline to any confirmation prompts that might come up
@@ -180,6 +192,7 @@ add_shortcuts_to_bashrc
 if [ "$PACKAGE_MANAGER" == "yum" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
     sudo $PACKAGE_MANAGER update && sudo $PACKAGE_MANAGER install -y gcc gcc-c++ kernel-devel make util-linux-user git vim tmux screen ack curl zsh wget jq tar
+    install_ncdu_binary
     install_vim_plugins
     install_tpm_and_plugins
     install_ohmyzsh
@@ -192,7 +205,7 @@ if [ "$PACKAGE_MANAGER" == "yum" ]; then
     change_default_shell
 elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
-    sudo $PACKAGE_MANAGER update && sudo $PACKAGE_MANAGER install -y build-essential git vim tmux screen ack curl zsh ripgrep wget duf jq
+    sudo $PACKAGE_MANAGER update && sudo $PACKAGE_MANAGER install -y build-essential git vim tmux screen ack curl zsh ripgrep wget duf jq ncdu
     install_vim_plugins
     install_tpm_and_plugins
     install_ohmyzsh
@@ -206,7 +219,7 @@ elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
 elif [ "$PACKAGE_MANAGER" == "brew" ]; then
     if which "$PACKAGE_MANAGER"; then
         echo "$PACKAGE_MANAGER is installed"
-        $PACKAGE_MANAGER install git vim tmux screen coreutils ack curl zsh ripgrep wget duf jq
+        $PACKAGE_MANAGER install git vim tmux screen coreutils ack curl zsh ripgrep wget duf jq ncdu
         install_vim_plugins
         install_tpm_and_plugins
         install_ohmyzsh
