@@ -3,7 +3,7 @@ FROM amazonlinux:2
 ENV TZ=UTC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN yum update && yum install -y sudo locales glibc-locale-source glibc-langpack-en
+RUN yum update -y && yum install -y sudo locales glibc-locale-source glibc-langpack-en
 ENV LANG en_US.utf8
 
 ADD . /opt/ravikiranj/dotfiles
