@@ -1,0 +1,250 @@
+# Interview Prep 2026 — Design Spec
+
+**Date:** 2026-03-29
+**Target:** Senior Software Engineer at FAANG/top-tier companies
+**Timeline:** 3-4 months of active prep
+**Approach:** NeetCode 150 (pattern-ordered) + Grokking System Design + Behavioral STAR stories
+
+---
+
+## Context
+
+- Weekly cadence: 2-3 weekday sessions (2 problems each) + 1 weekend session (2-4 hours)
+- Current readiness: Rusty across algorithms, system design, and behavioral
+- Repo: Java + Gradle, with TestNG, Lombok, SLF4J/Log4J2, Guava, Jackson, Apache Commons
+
+---
+
+## Section 1: Repo Structure
+
+```
+interview-prep-2026/
+├── src/
+│   └── main/java/com/interview/
+│       ├── patterns/
+│       │   ├── arrays/
+│       │   ├── twopointers/
+│       │   ├── slidingwindow/
+│       │   ├── stack/
+│       │   ├── binarysearch/
+│       │   ├── linkedlist/
+│       │   ├── trees/
+│       │   ├── tries/
+│       │   ├── heap/
+│       │   ├── backtracking/
+│       │   ├── graphs/
+│       │   ├── dp/
+│       │   └── greedy/
+│       └── systemdesign/
+├── src/test/java/com/interview/
+│   └── patterns/          ← mirrors main, TestNG tests per problem
+├── docs/
+│   ├── progress.md        ← weekly tracker + pattern completion
+│   ├── patterns/          ← cheat sheets per pattern
+│   ├── systemdesign/      ← design write-ups (markdown)
+│   └── behavioral/        ← STAR story files
+└── build.gradle
+```
+
+### Build Stack
+
+| Dependency | Purpose |
+|---|---|
+| Java 21 | Language |
+| Gradle (latest) | Build tool |
+| TestNG | Test runner |
+| Lombok | Boilerplate reduction (`@Slf4j`, `@Data`, etc.) |
+| SLF4J + Log4J2 | Logging |
+| Guava | Collections + utilities |
+| Jackson | JSON serialization |
+| Apache Commons Lang3 | `StringUtils`, `ArrayUtils`, `Pair`, etc. |
+| Apache Commons Collections4 | Extended collection types |
+| Apache Commons Math3 | Math utilities |
+
+### Problem File Convention
+
+Each Java file = one LeetCode problem, named by problem (e.g., `TwoSum.java`).
+
+Header comment is added **after solving** (retrospective, not a hint):
+
+```java
+/**
+ * Problem: Two Sum (LC #1)
+ * Link: https://leetcode.com/problems/two-sum/
+ * Pattern: Arrays, HashMap
+ * Difficulty: Easy
+ * Time: O(n) | Space: O(n)
+ * Key Insight: Trade space for time using a complement map
+ */
+```
+
+---
+
+## Section 2: Weekly Schedule & Prep Rhythm
+
+### Weekday Sessions (2-3 sessions/week, ~30-45 min each)
+- 2 problems per session, following NeetCode 150 pattern order strictly
+- Attempt first (~20 min), review solution/discussion only if stuck
+- Add retrospective header comment before moving on
+
+### Weekend Session (1 session, 2-4 hours — Saturday OR Sunday, not both)
+| Time | Activity |
+|---|---|
+| First 1-1.5 hrs | Review week's problems — revisit anything struggled with |
+| Next 1-1.5 hrs | System design: read Grokking chapter → sketch design → write doc |
+| Last 30 min | Behavioral: write or refine one STAR story |
+
+### Monthly Checkpoint (last Sunday of each month)
+- Review `docs/progress.md`
+- Identify weakest pattern → allocate extra focus next month
+- Do one timed mock problem (no hints, 45 min hard cutoff)
+
+### 3-4 Month Arc
+
+| Month | Algorithm Focus | System Design |
+|---|---|---|
+| 1 | Arrays, Two Pointers, Sliding Window, Stack, Binary Search | URL Shortener, Rate Limiter, Pastebin |
+| 2 | Linked List, Trees, Tries, Heap/Priority Queue | News Feed, Notification System, Chat System |
+| 3 | Backtracking, Graphs, DP (1D + 2D) | Search Autocomplete, YouTube/Netflix, Web Crawler |
+| 4 | Greedy, mock interviews, review | Distributed KV Store, Twitter, Message Queue |
+
+---
+
+## Section 3: Progress Tracking
+
+**`docs/progress.md`** is the single source of truth.
+
+```markdown
+## Pattern Progress
+| Pattern         | Total | Done | Notes |
+|-----------------|-------|------|-------|
+| Arrays          | 9     | 0    |       |
+| Two Pointers    | 5     | 0    |       |
+| Sliding Window  | 6     | 0    |       |
+| Stack           | 7     | 0    |       |
+| Binary Search   | 7     | 0    |       |
+| Linked List     | 11    | 0    |       |
+| Trees           | 15    | 0    |       |
+| Tries           | 3     | 0    |       |
+| Heap            | 7     | 0    |       |
+| Backtracking    | 9     | 0    |       |
+| Graphs          | 13    | 0    |       |
+| DP (1D)         | 12    | 0    |       |
+| DP (2D)         | 11    | 0    |       |
+| Greedy          | 8     | 0    |       |
+
+## Weekly Log
+### Week of YYYY-MM-DD
+- Problems solved: X
+- Patterns covered: X
+- System design topic: X
+- Struggled with: X
+- Key insight of the week: X
+
+## System Design Topics
+| Topic                      | Done | Write-up |
+|----------------------------|------|----------|
+| URL Shortener              | [ ]  |          |
+| Rate Limiter               | [ ]  |          |
+| Pastebin                   | [ ]  |          |
+| News Feed                  | [ ]  |          |
+| Notification System        | [ ]  |          |
+| Chat System                | [ ]  |          |
+| Search Autocomplete        | [ ]  |          |
+| YouTube/Netflix            | [ ]  |          |
+| Web Crawler                | [ ]  |          |
+| Distributed KV Store       | [ ]  |          |
+| Design Twitter             | [ ]  |          |
+| Distributed Message Queue  | [ ]  |          |
+
+## Behavioral STAR Stories
+| Theme               | Done |
+|---------------------|------|
+| Leadership/Influence| [ ]  |
+| Conflict Resolution | [ ]  |
+| Navigating Ambiguity| [ ]  |
+| Failure & Recovery  | [ ]  |
+| Scale/Impact        | [ ]  |
+| Cross-team Collab   | [ ]  |
+| Mentorship          | [ ]  |
+| Technical Decision  | [ ]  |
+```
+
+---
+
+## Section 4: System Design
+
+**Primary resource:** [Grokking the System Design Interview](https://www.educative.io/courses/grokking-the-system-design-interview)
+
+**Workflow per topic:**
+1. Read Grokking chapter (~45 min)
+2. Sketch the design yourself without looking (~30 min)
+3. Write the doc in `docs/systemdesign/<topic>.md` (~30 min)
+
+**Supplementary:** ByteByteGo, Gaurav Sen YouTube for visual walkthroughs.
+
+**Design doc template (`docs/systemdesign/<topic>.md`):**
+
+```markdown
+# System Design: <Topic>
+
+## Requirements
+### Functional
+### Non-Functional
+
+## Capacity Estimation
+- Read/Write ratio, QPS, storage estimates
+
+## High-Level Design
+[ASCII diagram or component description]
+
+## Deep Dive
+- Database choice + schema
+- Key algorithms/strategies
+- Caching layer
+- Bottlenecks & solutions
+
+## Trade-offs Considered
+
+## References
+```
+
+---
+
+## Section 5: Behavioral Prep
+
+Target: **8-10 polished STAR stories** by end of Month 3.
+
+**Key themes for Senior SWE at FAANG:**
+- Leadership/Influence without authority
+- Conflict resolution with teammates/managers
+- Navigating ambiguous requirements
+- Failure and recovery
+- Projects with measurable scale/impact
+- Cross-team collaboration
+- Mentorship
+- Driving a significant technical decision
+
+**Story file template (`docs/behavioral/<theme>.md`):**
+
+```markdown
+# Story: <Title>
+
+## Situation
+...
+
+## Task
+...
+
+## Action
+...
+
+## Result
+- Quantified outcome 1
+- Quantified outcome 2
+
+## Applicable Questions
+- Tell me about a time you...
+```
+
+**Weekend allocation:** Last 30 min — write or refine one story.
