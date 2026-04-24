@@ -201,7 +201,7 @@ add_shortcuts_to_bashrc
 
 if [ "$PACKAGE_MANAGER" == "yum" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
-    sudo $PACKAGE_MANAGER update && sudo $PACKAGE_MANAGER install -y gcc gcc-c++ kernel-devel make util-linux-user git vim tmux screen curl zsh wget jq tar
+    sudo $PACKAGE_MANAGER update && sudo $PACKAGE_MANAGER install -y gcc gcc-c++ kernel-devel make util-linux-user git vim tmux screen zsh wget jq tar
     install_ncdu_binary
     install_vim_plugins
     install_tpm_and_plugins
@@ -229,7 +229,7 @@ elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
 elif [ "$PACKAGE_MANAGER" == "brew" ]; then
     if which "$PACKAGE_MANAGER"; then
         echo "$PACKAGE_MANAGER is installed"
-        $PACKAGE_MANAGER install git vim tmux screen coreutils curl zsh ripgrep wget duf jq ncdu
+        $PACKAGE_MANAGER install git vim tmux screen coreutils zsh ripgrep wget duf jq ncdu
         install_vim_plugins
         install_tpm_and_plugins
         install_ohmyzsh
