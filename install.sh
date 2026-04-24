@@ -120,7 +120,9 @@ function install_powerlevel10k() {
 
 function install_ohmyzsh() {
     echo "Started installing ohmyzsh"
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    fi
 
     install_oh_my_zsh_plugins
     add_shortcuts_to_zshrc
