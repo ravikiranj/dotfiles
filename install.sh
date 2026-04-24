@@ -47,7 +47,6 @@ function copy_config_files() {
     backup_and_copy_file ./vimrc "$HOME/.vimrc"
     backup_and_copy_file ./tmux.conf "$HOME/.tmux.conf"
     backup_and_copy_file ./screenrc "$HOME/.screenrc"
-    backup_and_copy_file ./ackrc "$HOME/.ackrc"
     backup_and_copy_file ./ripgreprc "$HOME/.ripgreprc"
     backup_and_copy_file ./vrapperrc "$HOME/.vrapperrc"
     backup_and_copy_file ./ideavimrc "$HOME/.ideavimrc"
@@ -62,7 +61,9 @@ function install_tpm_and_plugins() {
     if [ "$PLATFORM" == "AL2" ]; then
         export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux/plugins/"
     fi
-    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+        git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+    fi
     eval "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh"
     echo "Completed installing tmux plugin manager and plugins"
 }
@@ -77,7 +78,9 @@ function add_shortcuts_to_bashrc() {
 function install_oh_my_zsh_plugins() {
     OMZ_CUSTOM="$HOME/.oh-my-zsh/custom"
     echo "Started install zsh plugins"
-    git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "$OMZ_CUSTOM/plugins/autoupdate"
+    if [ ! -d "$OMZ_CUSTOM/plugins/autoupdate" ]; then
+        git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "$OMZ_CUSTOM/plugins/autoupdate"
+    fi
     echo "Completed install zsh plugins"
 
     echo "Updating plugins in $HOME/.zshrc"
@@ -99,7 +102,10 @@ function add_shortcuts_to_zshrc() {
 
 function install_powerlevel10k() {
     echo "Started installing powerlevel10k theme for zsh"
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+    P10K_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+    if [ ! -d "$P10K_DIR" ]; then
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$P10K_DIR"
+    fi
 
     echo "Changing theme to powerlevel10k"
 
@@ -125,7 +131,7 @@ function install_powerline_fonts() {
     echo "Started installing powerline fonts"
     pushd /tmp
 
-    # clone
+    rm -rf fonts
     git clone https://github.com/powerline/fonts.git --depth=1
 
     # install
@@ -144,7 +150,9 @@ function install_nerd_fonts() {
 
 function install_fzf() {
     echo "Started installing fzf"
-    git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+    if [ ! -d "$HOME/.fzf" ]; then
+        git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+    fi
     "$HOME/.fzf/install" --all
     echo "Completed installing fzf"
 }
@@ -191,7 +199,7 @@ add_shortcuts_to_bashrc
 
 if [ "$PACKAGE_MANAGER" == "yum" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
-    sudo $PACKAGE_MANAGER update && sudo $PACKAGE_MANAGER install -y gcc gcc-c++ kernel-devel make util-linux-user git vim tmux screen ack curl zsh wget jq tar
+    sudo $PACKAGE_MANAGER update && sudo $PACKAGE_MANAGER install -y gcc gcc-c++ kernel-devel make util-linux-user git vim tmux screen curl zsh wget jq tar
     install_ncdu_binary
     install_vim_plugins
     install_tpm_and_plugins
@@ -205,7 +213,7 @@ if [ "$PACKAGE_MANAGER" == "yum" ]; then
     change_default_shell
 elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
     echo "Installing packages via $PACKAGE_MANAGER"
-    sudo $PACKAGE_MANAGER update && sudo $PACKAGE_MANAGER install -y build-essential git vim tmux screen ack curl zsh ripgrep wget duf jq ncdu
+    sudo $PACKAGE_MANAGER update && sudo $PACKAGE_MANAGER install -y build-essential git vim tmux screen curl zsh ripgrep wget duf jq ncdu
     install_vim_plugins
     install_tpm_and_plugins
     install_ohmyzsh
@@ -219,7 +227,7 @@ elif [ "$PACKAGE_MANAGER" == "apt-get" ]; then
 elif [ "$PACKAGE_MANAGER" == "brew" ]; then
     if which "$PACKAGE_MANAGER"; then
         echo "$PACKAGE_MANAGER is installed"
-        $PACKAGE_MANAGER install git vim tmux screen coreutils ack curl zsh ripgrep wget duf jq ncdu
+        $PACKAGE_MANAGER install git vim tmux screen coreutils curl zsh ripgrep wget duf jq ncdu
         install_vim_plugins
         install_tpm_and_plugins
         install_ohmyzsh
